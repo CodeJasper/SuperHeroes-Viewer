@@ -1,21 +1,22 @@
 import "./App.css";
-import { getSuperHeroesByPage } from "./Services/SuperHeroesServices";
-import { useEffect, useState } from "react";
 import ListCardHeroe from "./Components/List-card-heroe/ListCardHeroe";
+import Pagination from "./Components/Pagination/Pagination";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
-  const [superHeroes, setSuperHeroes] = useState([]);
-
-  useEffect(() => {
-    const superHeroeById = async () => {
-      const response = await getSuperHeroesByPage(2);
-      setSuperHeroes(response);
-    };
-    superHeroeById();
-  }, []);
-
   return (
-    <>{superHeroes.length > 0 && <ListCardHeroe heroes={superHeroes} />}</>
+    <>
+      <Switch>
+        <Route path="/list/:page">
+          <ListCardHeroe />
+          <Pagination />
+        </Route>
+        <Route path="/">
+          <ListCardHeroe />
+          <Pagination />
+        </Route>
+      </Switch>
+    </>
   );
 }
 
