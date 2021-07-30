@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 export default function ListCardHeroe() {
   const [isLoading, setIsLoading] = useState(false);
   const [superHeroes, setSuperHeroes] = useState([]);
+  const [error, setError] = useState({ isError: false, message: "" });
   const paramsRoute = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -23,7 +24,22 @@ export default function ListCardHeroe() {
     }
     const superHeroes = async () => {
       const response = await getSuperHeroesByPage(currentPage);
-      setSuperHeroes(response.filter((item) => !item.data.error));
+      let errorTemp = false;
+
+      response.forEach((item) => {
+        if (item.data === undefined) {
+          errorTemp = true;
+        }
+      });
+      if (errorTemp === false) {
+        setSuperHeroes(response.filter((item) => !item.data.error));
+      } else {
+        setError({
+          isError: true,
+          message:
+            "Ha ocurrido un error con la API, intentelo mas tarde o use otro navegador.",
+        });
+      }
       setIsLoading(false);
     };
     superHeroes();
@@ -32,7 +48,7 @@ export default function ListCardHeroe() {
   return (
     <>
       {isLoading === true && <Loading />}
-      {superHeroes.length > 0 && (
+      {superHeroes.length > 0 && error.isError === false && (
         <div className="list-card-heroe">
           <>
             {superHeroes.map((item) => {
@@ -40,6 +56,9 @@ export default function ListCardHeroe() {
             })}
           </>
         </div>
+      )}
+      {error.isError === true && (
+        <h1 className="error-message">{error.message}</h1>
       )}
     </>
   );

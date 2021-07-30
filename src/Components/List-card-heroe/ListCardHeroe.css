@@ -31,3 +31,8 @@
     width: 50%;
   }
 }
+
+.error-message {
+  color: aliceblue;
+  text-align: center;
+}

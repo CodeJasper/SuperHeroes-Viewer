@@ -11,14 +11,28 @@ export default function SuperHeroDetails() {
   const [heroe, setHeroe] = useState();
   const paramsRoute = useParams();
   const history = useHistory();
+  const [error, setError] = useState({ isError: false, message: "" });
 
   useEffect(() => {
     const getHeroe = async () => {
       const response = await getSuperHeroeById(paramsRoute.id);
-      if (response.data.error) {
-        history.push("/list/1");
+      let errorTemp = false;
+
+      if (response.data === undefined) {
+        errorTemp = true;
+      }
+      if (errorTemp === false) {
+        if (response.data.error) {
+          history.push("/list/1");
+        } else {
+          setHeroe(response.data);
+        }
       } else {
-        setHeroe(response.data);
+        setError({
+          isError: true,
+          message:
+            "Ha ocurrido un error con la API, intentelo mas tarde o use otro navegador.",
+        });
       }
     };
     if (heroeSelected !== undefined) {
@@ -29,7 +43,10 @@ export default function SuperHeroDetails() {
   }, [heroeSelected, paramsRoute, history]);
   return (
     <>
-      {heroe !== undefined && (
+      {error.isError === true && (
+        <h1 className="error-message">{error.message}</h1>
+      )}
+      {heroe !== undefined && error.isError === false && (
         <>
           <Header name={heroe.name} publisher={heroe.biography.publisher} />
           <div className="body">
