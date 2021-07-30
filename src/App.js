@@ -1,7 +1,8 @@
 import "./App.css";
 import ListCardHeroe from "./Components/List-card-heroe/ListCardHeroe";
 import Pagination from "./Components/Pagination/Pagination";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
+import SuperHeroDetails from "./Components/SuperHeroe-details/SuperHero-details";
 
 function App() {
   return (
@@ -11,9 +12,11 @@ function App() {
           <ListCardHeroe />
           <Pagination />
         </Route>
+        <Route path="/superHero/:id">
+          <SuperHeroDetails />
+        </Route>
         <Route path="/">
-          <ListCardHeroe />
-          <Pagination />
+          <Redirect to="/list/1" />
         </Route>
       </Switch>
     </>

@@ -5,7 +5,7 @@ export const SuperHeroeSlice = createSlice({
   initialState: {},
   reducers: {
     addSuperHeroe: (state, action) => {
-      state = action;
+      state.heroe = action.payload;
     },
   },
 });

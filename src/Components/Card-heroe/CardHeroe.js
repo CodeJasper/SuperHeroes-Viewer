@@ -1,8 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { addSuperHeroe } from "../../Store/Slices/SuperHeroeSlice";
+import { useHistory } from "react-router";
 import "./CardHeroe.css";
 
 export default function CardHeroe({ heroe }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const viewDeatails = () => {
+    dispatch(addSuperHeroe(heroe.data));
+    history.push(`/superHero/${heroe.data.id}`);
+  };
+
   return (
     <>
       {!heroe.data.error && (
@@ -37,7 +48,9 @@ export default function CardHeroe({ heroe }) {
               <p className="info-value">{heroe.data.appearance.weight}</p>
             </div>
             <div>
-              <button className="button">Detalles</button>
+              <button onClick={viewDeatails} className="button">
+                Detalles
+              </button>
             </div>
           </div>
         </div>
