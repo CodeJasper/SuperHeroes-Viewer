@@ -1,0 +1,211 @@
+.heroe-card {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px 5px #000000;
+  overflow: hidden;
+  position: relative;
+}
+
+.container-heroe-name-preview {
+  padding: 20px 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+  transition: opacity 0.2s, transform 0.5s;
+  background-color: #11111199;
+  box-shadow: 0px -10px 50px 10px #000000;
+}
+
+.heroe-card:hover .container-heroe-name-preview {
+  transform: translate(0px, 50px);
+  opacity: 0;
+}
+
+.heroe-card:hover .heroe-card-body {
+  top: 0px;
+}
+
+.heroe-card:hover .heroe-card-body > div {
+  transform: translate(0px, 100px);
+}
+
+.heroe-card:hover .heroe-image {
+  opacity: 0.5;
+  filter: blur(5px);
+}
+
+.heroe-name,
+.heroe-name-preview {
+  font-size: 40px;
+}
+
+.heroe-publisher {
+  font-size: 25px;
+}
+
+.heroe-name,
+.heroe-publisher,
+.heroe-name-preview {
+  margin: 5px 0;
+  color: white;
+  text-align: center;
+}
+
+.heroe-image {
+  opacity: 100;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s;
+}
+
+.heroe-card-image-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.heroe-card-body {
+  display: flex;
+  flex-direction: column;
+  background-color: #11111199;
+  box-shadow: 0px -10px 50px 10px #000000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 2000px;
+  opacity: 1;
+  transition: top 0.2s;
+}
+
+.heroe-card-body > div {
+  transition: transform 0.5s;
+}
+
+.heroe-info {
+  display: grid;
+  width: 100%;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: column;
+  padding: 20px 0;
+}
+
+.heroe-info > p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: white;
+  margin: 15px 0;
+  padding: 0px 20px;
+  text-align: center;
+}
+
+.info-name {
+  font-size: 20px;
+}
+
+.info-value {
+  font-size: 20px;
+}
+
+.button {
+  display: block;
+  background-color: rgb(73, 73, 230);
+  outline: none;
+  border: none;
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  color: white;
+  border-radius: 20px;
+  margin-top: 10px;
+  transition: filter 0.2s, transform 0.2s;
+  box-shadow: 1px 1px 2px 0px rgb(43, 43, 250);
+}
+
+.button:hover {
+  cursor: pointer;
+  filter: saturate(2.5);
+  transform: scale(1.01);
+}
+
+@media (max-width: 768px) {
+  .heroe-card:hover .heroe-card-body > div {
+    transform: translate(0px, 10px);
+  }
+
+  .heroe-info > p {
+    margin: 5px 0;
+  }
+
+  .info-name {
+    font-size: 14px;
+  }
+
+  .info-value {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .heroe-card:hover .heroe-card-body > div {
+    transform: translate(0px, 20px);
+  }
+  .heroe-info > p {
+    margin: 5px 0;
+  }
+
+  .info-name {
+    font-size: 14px;
+  }
+
+  .info-value {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .heroe-card:hover .heroe-card-body > div {
+    transform: translate(0px, 60px);
+  }
+  .heroe-info > p {
+    margin: 10px 0;
+  }
+
+  .info-name {
+    font-size: 16px;
+  }
+
+  .info-value {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .heroe-card:hover .heroe-card-body > div {
+    transform: translate(0px, 20px);
+  }
+  .heroe-info > p {
+    margin: 5px 0;
+  }
+
+  .info-name {
+    font-size: 16px;
+  }
+
+  .info-value {
+    font-size: 16px;
+  }
+
+  .heroe-name,
+  .heroe-name-preview {
+    font-size: 30px;
+  }
+
+  .heroe-publisher {
+    font-size: 25px;
+  }
+}

@@ -1,3 +1,9 @@
+# Super Heroes Viewer
+
+![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/Images/List-card.png)
+![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/Images/Details.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
