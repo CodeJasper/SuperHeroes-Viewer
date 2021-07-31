@@ -1,7 +1,8 @@
 # Super Heroes Viewer
 
-![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/images/Details.PNG)
-![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/images/List-card.PNG)
+![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/Images/List-card.PNG)
+![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/Images/Details.PNG)
+
 
 # Getting Started with Create React App
 
