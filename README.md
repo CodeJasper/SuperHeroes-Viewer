@@ -1,6 +1,4 @@
 # Super Heroes Viewer
-![ScreenShot](https://raw.githubusercontent.com/codejasper/Searcher-images/develop/src/assets/Preview1.PNG)
-![ScreenShot](https://raw.githubusercontent.com/codejasper/Searcher-images/develop/src/assets/Preview2.PNG)
 
 ![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/images/Details.PNG)
 ![ScreenShot](https://raw.githubusercontent.com/codejasper/SuperHeroes-Viewer/develop/src/images/List-card.PNG)
